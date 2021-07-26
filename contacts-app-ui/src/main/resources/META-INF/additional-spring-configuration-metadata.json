@@ -5,7 +5,7 @@
       "type": "java.lang.String",
       "description": "Contacts Server username",
       "defaultValue": "apress"
-  },
+    },
     {
       "name": "contacts.password",
       "type": "java.lang.String",

@@ -1,6 +1,7 @@
 package com.apress;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +32,11 @@ public class ContactController {
     public ResponseEntity<Contact> saveContact(@RequestBody Contact contact){
         URI location = URI.create(String.format("/contacts/%s", contact.getEmail()));
         return ResponseEntity.created(location).body(contactRepository.save(contact));
+    }
+
+    @DeleteMapping("/contacts/{email}")
+    @ResponseStatus(HttpStatus.OK)
+    public void removeContact(@PathVariable String email){
+        contactRepository.deleteById(email);
     }
 }

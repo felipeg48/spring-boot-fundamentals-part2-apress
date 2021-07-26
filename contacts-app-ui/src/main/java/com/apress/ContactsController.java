@@ -29,7 +29,7 @@ public class ContactsController {
         return model;
     }
 
-    @PostMapping("/contact")
+    @PostMapping("/contacts")
     public String indexByName(@ModelAttribute("contactForm") Contact contact, Model model){
         ResponseEntity<Contact[]> responseEntity = restTemplate.getForEntity(contactsProperties.getServer() + "/contains/" + contact.getName(),Contact[].class);
         model.addAttribute("contacts", responseEntity.getBody());
