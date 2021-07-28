@@ -4,7 +4,6 @@ metadata:
   labels:
     app: contacts-app
   name: contacts-app
-  namespace: spring
 spec:
   replicas: 1
   selector:
@@ -16,14 +15,11 @@ spec:
         app: contacts-app
     spec:
       containers:
-      - image: felipeg48/contacts-app:v1
+      - image: felipeg48/contacts-app:v1.0
         name: contacts-app
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: prod
-        volumeMounts:
-          - mountPath: "/workspace/config"
-            name: contacts-config
         livenessProbe:
           initialDelaySeconds: 50
           httpGet:
@@ -41,13 +37,6 @@ spec:
           limits:
             memory: "732Mi"
             cpu: "500m"
-      volumes:
-        - name: contacts-config
-          configMap:
-            name: contacts-config
-            items:
-              - key: application.yaml
-                path: application.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -63,4 +52,3 @@ spec:
     targetPort: 8080
   selector:
     app: contacts-app
-  type: ClusterIP

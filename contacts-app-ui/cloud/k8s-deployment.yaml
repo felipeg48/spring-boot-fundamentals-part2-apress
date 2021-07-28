@@ -16,7 +16,7 @@ spec:
         app: contacts-app-ui
     spec:
       containers:
-      - image: felipeg48/contacts-app-ui:v1
+      - image: felipeg48/contacts-app-ui:v1.0
         name: contacts-app-ui
         env:
           - name: CONTACTS_SERVER
@@ -49,4 +49,5 @@ spec:
     targetPort: 8080
   selector:
     app: contacts-app-ui
-  type: ClusterIP #LoadBalancer
+  type: LoadBalancer
+
