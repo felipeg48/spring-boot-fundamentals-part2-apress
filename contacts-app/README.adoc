@@ -59,6 +59,6 @@ This is the final deployment file:
 [source,yaml,linenums]
 .k8s-deployment.yaml
 ----
-include::k8s-deployment.yaml[]
+include::cloud/k8s-deployment.yaml[]
 ----
 
