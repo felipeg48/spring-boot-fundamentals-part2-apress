@@ -20,16 +20,16 @@ spec:
         env:
           - name: SPRING_PROFILES_ACTIVE
             value: prod
-        livenessProbe:
-          initialDelaySeconds: 50
-          httpGet:
-            port: 8080
-            path: "/actuator/health/liveness"
-        readinessProbe:
-          initialDelaySeconds: 50
-          httpGet:
-            port: 8080
-            path: "/actuator/health/readiness"
+        #livenessProbe:
+        #  initialDelaySeconds: 50
+        #  httpGet:
+        #    port: 8080
+        #    path: "/actuator/health/liveness"
+        #readinessProbe:
+        #  initialDelaySeconds: 50
+        #  httpGet:
+        #    port: 8080
+        #    path: "/actuator/health/readiness"
         resources:
           requests:
             memory: "732Mi"
